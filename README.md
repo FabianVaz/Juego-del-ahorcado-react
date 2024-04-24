@@ -1,6 +1,6 @@
 # Juego del Ahorcado con React
-Se agregó la función de un botón para cambiar la categoría de las palabras que se estarán mostrando.
-Se agregaron categorías con más palabras para cada categoría y una función para que se distinga de qué categoría es la palabra.
+Se agregó la función de un botón para cambiar la categoría de las palabras que se estarán mostrando.  
+Se agregaron categorías con más palabras para cada categoría y una función para que se distinga de qué categoría es la palabra.  
 Se agregaron las pistas para saber qué palabra es la que se tiene que adivinar en adición de sólo los espacios de las letras que deben de ir.
 
 # React + TypeScript + Vite
