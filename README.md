@@ -1,3 +1,12 @@
+# Juego del Ahorcado con React
+Se agregó la función de un botón para cambiar la categoría de las palabras que se estarán mostrando. 
+![image](https://github.com/FabianVaz/Juego-del-ahorcado-react/assets/99071781/eb73de6e-a8e6-4c86-a1fe-939b7a9d54b4)
+
+Se agregaron categorías con más palabras para cada categoría y una función para que se distinga de qué categoría es la palabra.  
+![image](https://github.com/FabianVaz/Juego-del-ahorcado-react/assets/99071781/9175c56b-6ad3-40d7-8180-00d2343a86da)
+Se agregaron las pistas para saber qué palabra es la que se tiene que adivinar en adición de sólo los espacios de las letras que deben de ir.
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
