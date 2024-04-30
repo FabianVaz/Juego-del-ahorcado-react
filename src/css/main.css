@@ -12,13 +12,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #007bff;
-  text-decoration: none;
+input:hover {
+ background-color: bisque;
 }
-a:hover {
-  color: #0056b3;
+
+img:hover {
+background-color: bisque;
 }
 
 body {
@@ -27,7 +26,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: inherit; /* Agregado para asegurar que el color de fondo se herede */
+  background-color: #3F3B3B;
+  color: #FBFC9C;
 }
 
 .container {
@@ -43,6 +43,7 @@ h1 {
   line-height: 1.2;
   text-align: center;
   margin-bottom: 1em;
+  color: #FBFC9C;
 }
 
 button {

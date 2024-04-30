@@ -1,4 +1,3 @@
-// Hangman.tsx
 import { useState, useEffect } from 'react';
 
 interface HangmanProps {
@@ -10,12 +9,22 @@ const Hangman = ({ words, hints }: HangmanProps) => {
   const [selectedWord, setSelectedWord] = useState<string>(words[0]);
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
   const [errorCount, setErrorCount] = useState<number>(0);
+  const [timeElapsed, setTimeElapsed] = useState<number>(0); // Estado para mantener el tiempo transcurrido
 
   useEffect(() => {
     setSelectedWord(words[Math.floor(Math.random() * words.length)]);
     setGuessedLetters([]);
     setErrorCount(0);
+    setTimeElapsed(0); // Reiniciar el tiempo cuando se cambie de palabra
   }, [words]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeElapsed((prevTime) => prevTime + 1);
+    }, 1000); // Actualizar el contador cada segundo
+
+    return () => clearInterval(timer); // Limpiar el intervalo cuando el componente se desmonte
+  }, []);
 
   const displayWord = selectedWord.split('').map((letter, index) => {
     if (guessedLetters.includes(letter)) {
@@ -38,6 +47,7 @@ const Hangman = ({ words, hints }: HangmanProps) => {
     setSelectedWord(words[Math.floor(Math.random() * words.length)]);
     setGuessedLetters([]);
     setErrorCount(0);
+    setTimeElapsed(0); // Reiniciar el tiempo cuando se reinicie el juego
   };
 
   return (
@@ -52,6 +62,8 @@ const Hangman = ({ words, hints }: HangmanProps) => {
       {displayWord.join('') === selectedWord && (
         <p>You won in this round</p>
       )}
+      <p>Time elapsed: {timeElapsed} seconds</p>
+      
     </div>
   );
 };
