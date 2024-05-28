@@ -3,22 +3,7 @@ import { useState } from "react";
 import Hangman from "./components/Hangman";
 import Welcome from "./components/Welcome";
 
-type WordCategories = {
-  Frutas: {
-    words: string[];
-    hints: { [key: string]: string };
-  };
-  Animales: {
-    words: string[];
-    hints: { [key: string]: string };
-  };
-  Transportes: {
-    words: string[];
-    hints: { [key: string]: string };
-  };
-};
-
-const wordCategories: WordCategories = {
+const wordCategories = {
   Frutas: {
     words: ['manzana', 'platano', 'sandia', 'papa', 'cebolla', 'ajo'],
     hints: {
@@ -55,10 +40,10 @@ const wordCategories: WordCategories = {
 };
 
 function App() {
-  const [currentCategory, setCurrentCategory] = useState<keyof WordCategories | null>(null);
+  const [currentCategory, setCurrentCategory] = useState<keyof typeof wordCategories | null>(null);
 
   const selectRandomCategory = () => {
-    const categories = Object.keys(wordCategories) as Array<keyof WordCategories>;
+    const categories = Object.keys(wordCategories) as Array<keyof typeof wordCategories>;
     const randomIndex = Math.floor(Math.random() * categories.length);
     setCurrentCategory(categories[randomIndex]);
   };
