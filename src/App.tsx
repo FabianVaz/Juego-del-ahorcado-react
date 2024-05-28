@@ -3,7 +3,22 @@ import { useState } from "react";
 import Hangman from "./components/Hangman";
 import Welcome from "./components/Welcome";
 
-const wordCategories = {
+type WordCategories = {
+  Frutas: {
+    words: string[];
+    hints: { [key: string]: string };
+  };
+  Animales: {
+    words: string[];
+    hints: { [key: string]: string };
+  };
+  Transportes: {
+    words: string[];
+    hints: { [key: string]: string };
+  };
+};
+
+const wordCategories: WordCategories = {
   Frutas: {
     words: ['manzana', 'platano', 'sandia', 'papa', 'cebolla', 'ajo'],
     hints: {
@@ -16,12 +31,12 @@ const wordCategories = {
     }
   },
   Animales: {
-    words: ['rana', 'raton', 'luciernaga', 'murcielago', 'clasica', 'reggae'],
+    words: ['rana', 'raton', 'luciernaga', 'murcielago', 'pollito', 'gallina'],
     hints: {
       rana: 'Canto en la orilla, vivo en el agua, no soy pescado ni cigarra. ¿Quién soy?',
       raton: 'El roer es mi trabajo, el queso mi aperitivo y el gato siempre será mi más temido enemigo. ¿Quién soy?',
-      lueciernaga: 'Soy un trocito de luz en la noche. De día me escondo en la hierba. Parezco una esmeralda que el viento se lleva. ¿Quién soy?',
-      muercielago: 'Vuelo de noche, duermo en el día y nunca veras plumas en ala mía.',
+      luciernaga: 'Soy un trocito de luz en la noche. De día me escondo en la hierba. Parezco una esmeralda que el viento se lleva. ¿Quién soy?',
+      murcielago: 'Vuelo de noche, duermo en el día y nunca veras plumas en ala mía.',
       pollito: 'Madre me labró una casa sin puertas y sin ventanas, y cuando quiero salir rompo antes la muralla.',
       gallina: 'Pico de cuerno, ala de ave, la rodilla para atrás, y anda adelante.'
     }
@@ -36,14 +51,14 @@ const wordCategories = {
       helicoptero: 'Encima de la cabeza gira mi gran abanico y en la punta de la cola gira otro pequeñito.',
       motocicleta: 'Vehículo soy, hago muchísimo ruido, pero sólo dos viajan conmigo.'
     }
-  },
+  }
 };
 
 function App() {
-  const [currentCategory, setCurrentCategory] = useState<string | null>(null);
+  const [currentCategory, setCurrentCategory] = useState<keyof WordCategories | null>(null);
 
   const selectRandomCategory = () => {
-    const categories = Object.keys(wordCategories);
+    const categories = Object.keys(wordCategories) as Array<keyof WordCategories>;
     const randomIndex = Math.floor(Math.random() * categories.length);
     setCurrentCategory(categories[randomIndex]);
   };
