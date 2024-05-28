@@ -39,11 +39,13 @@ const wordCategories = {
   }
 };
 
+type CategoryKeys = keyof typeof wordCategories;
+
 function App() {
-  const [currentCategory, setCurrentCategory] = useState<keyof typeof wordCategories | null>(null);
+  const [currentCategory, setCurrentCategory] = useState<CategoryKeys | null>(null);
 
   const selectRandomCategory = () => {
-    const categories = Object.keys(wordCategories) as Array<keyof typeof wordCategories>;
+    const categories = Object.keys(wordCategories) as CategoryKeys[];
     const randomIndex = Math.floor(Math.random() * categories.length);
     setCurrentCategory(categories[randomIndex]);
   };
